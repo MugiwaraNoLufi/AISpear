@@ -1,4 +1,3 @@
-import Alan from "@/components/shared/Alan";
 import CardBlog from "@/components/shared/Cards";
 import Footer from "@/components/shared/Footer";
 import HeroSection from "@/components/shared/HeroSection";
@@ -8,7 +7,7 @@ export default function page() {
   return (
     <div>
       <Navbar />
-      <Alan />
+
       <HeroSection />
       <CardBlog />
       <Footer />
