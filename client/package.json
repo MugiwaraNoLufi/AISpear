@@ -13,6 +13,7 @@
     "@clerk/nextjs": "^4.29.5",
     "@preline/collapse": "^2.0.2",
     "axios": "^1.6.7",
+    "flowbite-react": "^0.7.2",
     "mongoose": "^8.1.1",
     "next": "14.1.0",
     "preline": "^2.0.3",
