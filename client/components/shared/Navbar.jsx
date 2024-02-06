@@ -1,14 +1,16 @@
-'use client'
+"use client";
+import { NavLinks } from "@/constants";
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
-  const [isOpen ,setOpen]= useState(false);
+  const [isOpen, setOpen] = useState(false);
 
-  const toggle =()=>{
+  const toggle = () => {
     setOpen(!isOpen);
-  }
+  };
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+    <header className="z-50 flex flex-wrap w-full py-4 text-sm bg-white sm:justify-start sm:flex-nowrap dark:bg-gray-800">
       <nav
         className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
         aria-label="Global"
@@ -23,14 +25,14 @@ export default function Navbar() {
           <div className="sm:hidden">
             <button
               type="button"
-              className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              className="inline-flex items-center justify-center p-2 text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm hs-collapse-toggle gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               data-hs-collapse="#navbar-collapse-with-animation"
               aria-controls="navbar-collapse-with-animation"
               aria-label="Toggle navigation"
               onClick={toggle}
             >
               <svg
-                className="hs-collapse-open:hidden flex-shrink-0 w-4 h-4"
+                className="flex-shrink-0 w-4 h-4 hs-collapse-open:hidden"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -46,7 +48,7 @@ export default function Navbar() {
                 <line x1="3" x2="21" y1="18" y2="18" />
               </svg>
               <svg
-                className="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4"
+                className="flex-shrink-0 hidden w-4 h-4 hs-collapse-open:block"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -65,34 +67,19 @@ export default function Navbar() {
         </div>
         <div
           id="navbar-collapse-with-animation"
-          className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
+          className="hidden overflow-hidden transition-all duration-300 hs-collapse basis-full grow sm:block"
         >
           <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-            <a
-              className="font-medium text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="#"
-              aria-current="page"
-            >
-              Landing
-            </a>
-            <a
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="#"
-            >
-              Account
-            </a>
-            <a
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="#"
-            >
-              Work
-            </a>
-            <a
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="#"
-            >
-              Blog
-            </a>
+            {NavLinks.map((link, index) => (
+              <Link
+                className="font-medium text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                href={link.route}
+              >
+                {link.title}
+              </Link>
+            ))}
+
+            {/* <a> </a> */}
             <div>
               <div
                 className="hs-dropdown"
@@ -101,10 +88,10 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="hs-dropdown-toggle hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
+                  className="flex items-center font-medium text-gray-600 hs-dropdown-toggle hs-dark-mode group hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-500"
                 >
                   <svg
-                    className="hs-dark-mode-active:hidden block w-4 h-4"
+                    className="block w-4 h-4 hs-dark-mode-active:hidden"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -118,7 +105,7 @@ export default function Navbar() {
                     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                   </svg>
                   <svg
-                    className="hs-dark-mode-active:block hidden w-4 h-4"
+                    className="hidden w-4 h-4 hs-dark-mode-active:block"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
