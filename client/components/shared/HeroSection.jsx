@@ -70,7 +70,12 @@ export default function HeroSection() {
                   <div className="w-3 h-3 border-2 border-white rounded-full"></div>
                 </div>
               </div>
-              <Image src="/Hero.png" width={1000} height={1000} />
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+                alt="React"
+                width={1000}
+                height={1000}
+              />
             </div>
           </div>
         </div>
