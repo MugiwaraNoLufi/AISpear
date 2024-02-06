@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="col-span-full lg:col-span-1">
             <Link
               className="flex-none text-xl font-semibold text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="#"
+              href="/"
               aria-label="Brand"
             >
               Brand
@@ -96,7 +96,7 @@ export default function Footer() {
             <form>
               <div className="flex flex-col items-center gap-2 p-2 mt-4 bg-white rounded-lg sm:flex-row sm:gap-3 dark:bg-gray-800">
                 <div className="w-full">
-                  <label for="hero-input" className="sr-only">
+                  <label htmlFor="hero-input" className="sr-only">
                     Search
                   </label>
                   <input
