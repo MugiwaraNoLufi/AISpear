@@ -4,25 +4,32 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="pt-24 bg-white">
+    <section className="pt-24 bg-white dark:bg-slate-900 dark:text-white">
       <div className="px-12 mx-auto max-w-7xl">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
-          <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
-            <span>Discover your</span>{" "}
-            <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-blue-400 to-purple-500 lg:inline">
-              career path with
-            </span>{" "}
-            <span>personalized guidance.</span>
+          <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-white md:text-6xl md:tracking-tight">
+            <span>GlobalTalk</span>{" "}
+            <span class="inline-grid">
+              <span
+                class="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [transform:translate3d(0,0,0)] [-webkit-text-fill-color:transparent] before:content-[attr(data-text)] [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
+                aria-hidden="true"
+                data-text="component library"
+              ></span>{" "}
+              <span class="[&amp;::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&amp;::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]">
+                Connect, Innovate, Unite.
+              </span>
+            </span>
           </h1>
-          <p className="px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24">
-            Welcome to our Career Counseling Platform, where we illuminate
-            pathways to your professional aspirations with personalized guidance
-            and expertise.
+          <p className="px-0 mb-8 text-lg text-gray-600 dark:text-white md:text-xl lg:px-24">
+            Uniting India with AI-Powered Sign Language Recognition, Instant
+            Language Translation, and Enhanced Chatting & Video Calling
+            Features.
           </p>
+
           <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
             <Link
               href="chat"
-              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-blue-400 rounded-2xl sm:w-auto sm:mb-0"
+              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-blue-400 dark:bg-blue-500 rounded-2xl sm:w-auto sm:mb-0"
             >
               Get Started
               <svg
@@ -40,7 +47,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="Pathways"
-              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg bg-gray-100 rounded-2xl sm:w-auto sm:mb-0"
+              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg bg-gray-100 dark:bg-blue-400 rounded-2xl sm:w-auto sm:mb-0"
             >
               Learn More
               <svg
