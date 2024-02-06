@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.54",
     "@clerk/nextjs": "^4.29.5",
     "@preline/collapse": "^2.0.2",
     "axios": "^1.6.7",
