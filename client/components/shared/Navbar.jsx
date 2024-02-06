@@ -79,7 +79,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* <a> </a> */}
             <div>
               <div
                 className="hs-dropdown"
