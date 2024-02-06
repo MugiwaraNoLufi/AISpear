@@ -1,6 +1,12 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen ,setOpen]= useState(false);
+
+  const toggle =()=>{
+    setOpen(!isOpen);
+  }
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
       <nav
@@ -21,6 +27,7 @@ export default function Navbar() {
               data-hs-collapse="#navbar-collapse-with-animation"
               aria-controls="navbar-collapse-with-animation"
               aria-label="Toggle navigation"
+              onClick={toggle}
             >
               <svg
                 className="hs-collapse-open:hidden flex-shrink-0 w-4 h-4"
