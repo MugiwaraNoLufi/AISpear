@@ -1,28 +1,39 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getUserById } from "@/lib/actions/user.action";
+import { getTimeSinceJoining } from "@/utils";
 
-export default function page() {
+export default async function page() {
+  const user = await getUserById("user_2c2AeGhbDRs0ahqDm43IqYM65N9");
+  console.log(user);
+
   return (
     <div className="h-full p-8 bg-gray-200">
       <div className="pb-8 bg-white rounded-lg shadow-xl">
         <div className="w-full h-[250px]">
-          <img
+          <Image
             src="https://i.stack.imgur.com/vhoa0.jpg"
             className="w-full h-full rounded-tl-lg rounded-tr-lg"
+            width={500}
+            height={500}
           />
         </div>
-        <div className="flex flex-col items-left ml-10 -mt-20">
-          <img
-            src="https://th.bing.com/th?id=OIP.NqY3rNMnx2NXYo3KJfg43gAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+        <div className="flex flex-col ml-10 -mt-20 items-left">
+          <Image
+            src={user.picture}
             className="w-40 border-4 border-white rounded-full"
+            width={100}
+            height={100}
           />
-          <p className="text-2xl">Rahul Das</p>
+          <p className="text-2xl">{user.name}</p>
 
-          <p className="text-gray-700">Senior Software Engineer at Amazon</p>
-          <p className="text-sm text-gray-500">New York, USA</p>
+          <p className="text-gray-700">{user.email}</p>
+          <p className="text-sm text-gray-500">
+            {getTimeSinceJoining(user.joinedAt)}
+          </p>
         </div>
-        <div className="flex flex-col justify-start flex-1 px-8 mt-2 items-start">
+        <div className="flex flex-col items-start justify-start flex-1 px-8 mt-2">
           <div className="flex items-center mt-2 space-x-4">
             <button className="flex items-center px-4 py-2 space-x-2 text-sm text-gray-100 transition duration-100 bg-blue-600 rounded hover:bg-blue-700">
               <svg
@@ -112,7 +123,7 @@ export default function page() {
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 333333 333333"
-                    shape-rendering="geometricPrecision"
+                    shapeRendering="geometricPrecision"
                     text-rendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"
@@ -129,7 +140,7 @@ export default function page() {
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 333333 333333"
-                    shape-rendering="geometricPrecision"
+                    shapeRendering="geometricPrecision"
                     text-rendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"
@@ -147,7 +158,7 @@ export default function page() {
                     xmlns="http://www.w3.org/2000/svg"
                     width="0"
                     height="0"
-                    shape-rendering="geometricPrecision"
+                    shapeRendering="geometricPrecision"
                     text-rendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"

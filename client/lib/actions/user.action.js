@@ -1,8 +1,10 @@
 "use server";
 import { connectToDatabase } from "../database";
 import User from "../../database/user.model";
+import { revalidatePath } from "next/cache";
 
 export const createUser = async (user) => {
+  console.log("Printing from create user", user);
   try {
     await connectToDatabase();
     const newUser = await User.create(user);
@@ -12,18 +14,15 @@ export const createUser = async (user) => {
   }
 };
 
-export async function updateUser(user) {
+export async function updateUser(params) {
   try {
-    await connectToDatabase();
-    console.log("Printing from update user", user);
-    const { clerkId } = user;
+    const { clerkId, updateData, path } = params;
 
-    const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
+    await User.findOneAndUpdate({ clerkId }, updateData, {
       new: true,
     });
 
-    if (!updatedUser) throw new Error("User update failed");
-    return JSON.parse(JSON.stringify(updatedUser));
+    revalidatePath(path);
   } catch (error) {
     console.log("Error deleting user", error);
   }
