@@ -2,6 +2,8 @@
 import { NavLinks } from "@/constants";
 import React, { useState } from "react";
 import Link from "next/link";
+import HighitlightText from "./HighitlightText";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
@@ -16,12 +18,12 @@ export default function Navbar() {
         aria-label="Global"
       >
         <div className="flex items-center justify-between">
-          <a
+          <Link
             className="flex-none text-xl font-semibold dark:text-white"
             href="#"
           >
-            Brand
-          </a>
+            <HighitlightText text="CulturalConnect" />
+          </Link>
           <div className="sm:hidden">
             <button
               type="button"
@@ -156,6 +158,7 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            <UserButton afterSignOutUrl="/" />
           </div>
         </div>
       </nav>

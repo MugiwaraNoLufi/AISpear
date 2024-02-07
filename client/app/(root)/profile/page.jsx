@@ -19,9 +19,7 @@ export default function page() {
           />
           <p className="text-2xl">Rahul Das</p>
 
-          <p className="text-gray-700">
-            Senior Software Engineer at Amazon
-          </p>
+          <p className="text-gray-700">Senior Software Engineer at Amazon</p>
           <p className="text-sm text-gray-500">New York, USA</p>
         </div>
         <div className="flex flex-col justify-start flex-1 px-8 mt-2 items-start">
@@ -133,7 +131,7 @@ export default function page() {
                     viewBox="0 0 333333 333333"
                     shape-rendering="geometricPrecision"
                     text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality"
+                    imageRendering="optimizeQuality"
                     fillRule="evenodd"
                     clipRule="evenodd"
                   >
@@ -151,7 +149,7 @@ export default function page() {
                     height="0"
                     shape-rendering="geometricPrecision"
                     text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality"
+                    imageRendering="optimizeQuality"
                     fillRule="evenodd"
                     clipRule="evenodd"
                     viewBox="0 0 640 640"

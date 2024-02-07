@@ -3,7 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import PrelineScript from "@/components/PrelineScript";
 import Script from "next/script";
-import Alan from "@/components/shared/Alan";
+// import Alan from "@/components/shared/Alan";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <Script src="./node_modules/preline/dist/preline.js"></Script>
         <body className={inter.className}>{children}</body>
-        <Alan />
+        {/* <Alan /> */}
         <PrelineScript />
       </html>
     </ClerkProvider>

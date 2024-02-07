@@ -1,207 +1,206 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import HighitlightText from "./HighitlightText";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-900">
-      <div className="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-          <div className="col-span-full lg:col-span-1">
-            <Link
-              className="flex-none text-xl font-semibold text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              href="/"
-              aria-label="Brand"
-            >
-              Brand
-            </Link>
+    <footer className="text-gray-400 bg-gray-900 body-font">
+      <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap">
+        <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+          <Link
+            href="#"
+            className="flex items-center justify-center font-medium text-white title-font md:justify-start"
+          >
+            <HighitlightText text="CulturalConnect" />
+          </Link>
+          <p className="mt-2 text-sm text-gray-500">
+            Uniting India with AI-Powered Sign Language Recognition, Instant
+            Language Translation, and Enhanced Chatting & Video Calling
+            Features.
+          </p>
+        </div>
+        <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
+          <div className="w-full px-4 lg:w-1/4 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-white title-font">
+              CATEGORIES
+            </h2>
+            <nav className="mb-10 list-none">
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  First Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Second Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Third Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Fourth Link
+                </Link>
+              </li>
+            </nav>
           </div>
-          <div className="col-span-1">
-            <h4 className="font-semibold text-gray-100">Product</h4>
-
-            <div className="grid mt-3 space-y-3">
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Pricing
+          <div className="w-full px-4 lg:w-1/4 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-white title-font">
+              CATEGORIES
+            </h2>
+            <nav className="mb-10 list-none">
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  First Link
                 </Link>
-              </p>
-              <p>
-                <a
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Changelog
-                </a>
-              </p>
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Docs
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Second Link
                 </Link>
-              </p>
-            </div>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Third Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Fourth Link
+                </Link>
+              </li>
+            </nav>
           </div>
-
-          <div className="col-span-1">
-            <h4 className="font-semibold text-gray-100">Company</h4>
-
-            <div className="grid mt-3 space-y-3">
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  About us
+          <div className="w-full px-4 lg:w-1/4 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-white title-font">
+              CATEGORIES
+            </h2>
+            <nav className="mb-10 list-none">
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  First Link
                 </Link>
-              </p>
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Blog
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Second Link
                 </Link>
-              </p>
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Careers
-                </Link>{" "}
-                <span className="inline px-2 py-1 text-xs text-white bg-blue-700 rounded-lg ms-1">
-                  We're hiring
-                </span>
-              </p>
-              <p>
-                <Link
-                  className="inline-flex text-gray-400 gap-x-2 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Customers
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Third Link
                 </Link>
-              </p>
-            </div>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Fourth Link
+                </Link>
+              </li>
+            </nav>
           </div>
-          <div className="col-span-2">
-            <h4 className="font-semibold text-gray-100">Stay up to date</h4>
-
-            <form>
-              <div className="flex flex-col items-center gap-2 p-2 mt-4 bg-white rounded-lg sm:flex-row sm:gap-3 dark:bg-gray-800">
-                <div className="w-full">
-                  <label htmlFor="hero-input" className="sr-only">
-                    Search
-                  </label>
-                  <input
-                    type="text"
-                    id="hero-input"
-                    name="hero-input"
-                    className="block w-full px-4 py-3 text-sm border-transparent rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <a
-                  className="inline-flex items-center justify-center w-full p-3 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg sm:w-auto whitespace-nowrap gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Subscribe
-                </a>
-              </div>
-              <p className="mt-3 text-sm text-gray-400">
-                New UI kits or big discounts. Never spam.
-              </p>
-            </form>
+          <div className="w-full px-4 lg:w-1/4 md:w-1/2">
+            <h2 className="mb-3 text-sm font-medium tracking-widest text-white title-font">
+              CATEGORIES
+            </h2>
+            <nav className="mb-10 list-none">
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  First Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Second Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Third Link
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white">
+                  Fourth Link
+                </Link>
+              </li>
+            </nav>
           </div>
         </div>
-        <div className="grid mt-5 sm:mt-12 gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-400">
-              © 2022 Preline. All rights reserved.
-            </p>
-          </div>
-
-          <div>
+      </div>
+      <div className="bg-gray-800 bg-opacity-75">
+        <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
+          <p className="text-sm text-center text-gray-400 sm:text-left">
+            © 2020 Tailblocks —
             <Link
-              className="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold text-white border border-transparent rounded-lg gap-x-2 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href="#"
+              href="https://twitter.com/knyttneve"
+              rel="noopener noreferrer"
+              className="ml-1 text-gray-500"
+              target="_blank"
             >
+              @knyttneve
+            </Link>
+          </p>
+          <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+            <Link href="#" className="text-gray-400">
               <svg
-                className="flex-shrink-0 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
                 fill="currentColor"
-                viewBox="0 0 16 16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
               >
-                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </Link>
-            <Link
-              className="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold text-white border border-transparent rounded-lg gap-x-2 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href="#"
-            >
+            <Link href="#" className="ml-3 text-gray-400">
               <svg
-                className="flex-shrink-0 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
                 fill="currentColor"
-                viewBox="0 0 16 16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
               >
-                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
               </svg>
             </Link>
-            <Link
-              className="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold text-white border border-transparent rounded-lg gap-x-2 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href="#"
-            >
+            <Link href="#" className="ml-3 text-gray-400">
               <svg
-                className="flex-shrink-0 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
               >
-                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </Link>
-            <Link
-              className="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold text-white border border-transparent rounded-lg gap-x-2 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href="#"
-            >
+            <Link href="#" className="ml-3 text-gray-400">
               <svg
-                className="flex-shrink-0 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
                 fill="currentColor"
-                viewBox="0 0 16 16"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="0"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
               >
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
               </svg>
             </Link>
-            <Link
-              className="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold text-white border border-transparent rounded-lg gap-x-2 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href="#"
-            >
-              <svg
-                className="flex-shrink-0 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-              </svg>
-            </Link>
-          </div>
+          </span>
         </div>
       </div>
     </footer>
