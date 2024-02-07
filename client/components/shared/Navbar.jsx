@@ -156,9 +156,9 @@ export default function Navbar() {
                     Dark
                   </button>
                 </div>
-                <UserButton afterSignOutUrl="/" />
               </div>
             </div>
+            <UserButton afterSignOutUrl="/" />
           </div>
         </div>
       </nav>
