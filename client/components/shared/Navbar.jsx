@@ -74,6 +74,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
             {NavLinks.map((link, index) => (
               <Link
+                key={index}
                 className="font-medium text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href={link.route}
               >
