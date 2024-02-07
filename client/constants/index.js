@@ -11,4 +11,8 @@ export const NavLinks = [
     route: "/profile",
     title: "profile",
   },
+  {
+    route: "/sign-in",
+    title: "Login",
+  },
 ];

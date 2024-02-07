@@ -3,6 +3,7 @@ import { NavLinks } from "@/constants";
 import React, { useState } from "react";
 import Link from "next/link";
 import HighitlightText from "./HighitlightText";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
@@ -155,6 +156,7 @@ export default function Navbar() {
                     Dark
                   </button>
                 </div>
+                <UserButton afterSignOutUrl="/" />
               </div>
             </div>
           </div>
