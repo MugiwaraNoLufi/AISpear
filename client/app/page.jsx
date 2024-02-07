@@ -1,3 +1,4 @@
+import Bento from "@/components/shared/Bento";
 import CardBlog from "@/components/shared/Cards";
 import Footer from "@/components/shared/Footer";
 import HeroSection from "@/components/shared/HeroSection";
@@ -10,6 +11,7 @@ export default function page() {
 
       <HeroSection />
       <CardBlog />
+      <Bento />
       <Footer />
     </div>
   );
