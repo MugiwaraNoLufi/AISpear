@@ -12,3 +12,6 @@ if (
 export const getCredentials = async (roomName) => {
   return axios.get(`${API_URL}/session/${roomName}`);
 };
+export const getToken = async () => {
+  return axios.get(`${API_URL}/token`);
+}

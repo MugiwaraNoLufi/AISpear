@@ -6,6 +6,7 @@ import PrelineScript from "@/components/PrelineScript";
 import Script from "next/script";
 import { useMemo, useState } from "react";
 import { UserContext } from "./(root)/context/UserContext";
+import { PreferencesContext } from "./(root)/context/PreferencesContext";
 // import Alan from "@/components/shared/Alan";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,18 +29,31 @@ export default function RootLayout({ children }) {
       audioOutput: undefined,
     },
   });
+  const [preferences, setPreferences] = useState({
+    hasSetUpPreferences: false,
+    userName: null,
+    conversationId: null,
+  });
+
+  const preferencesValue = useMemo(
+    () => ({ preferences, setPreferences }),
+    [preferences, setPreferences]
+  );
   const userValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   return (
     <ClerkProvider>
       <UserContext.Provider value={userValue}>
+      <PreferencesContext.Provider value={preferencesValue}>
       <html lang="en">
         <Script src="./node_modules/preline/dist/preline.js"></Script>
         <body className={inter.className}>{children}</body>
         {/* <Alan /> */}
         <PrelineScript />
       </html>
+      </PreferencesContext.Provider>
       </UserContext.Provider>
 
-    </ClerkProvider>
+</ClerkProvider>
+
   );
 }
