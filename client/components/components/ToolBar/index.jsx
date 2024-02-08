@@ -142,25 +142,24 @@ export default function ToolBar({
         </>
       ) : (
         <>
-        <div className="bg-gray-800 flex justify-around items-center md:w-60 py-1 px-3 border-0 rounded-lg">
-          
-          <MuteAudioButton
-            toggleAudio={toggleAudio}
-            hasAudio={hasAudio}
-            changeAudioSource={changeAudioSource}
-            getAudioSource={getAudioSource}
-            cameraPublishing={cameraPublishing}
-          />
+          <div className="flex items-center justify-around px-3 py-1 bg-gray-800 border-0 rounded-lg md:w-60">
+            <MuteAudioButton
+              toggleAudio={toggleAudio}
+              hasAudio={hasAudio}
+              changeAudioSource={changeAudioSource}
+              getAudioSource={getAudioSource}
+              cameraPublishing={cameraPublishing}
+            />
 
-          <MuteVideoButton
-            toggleVideo={toggleVideo}
-            hasVideo={hasVideo}
-            getVideoSource={getVideoSource}
-            cameraPublishing={cameraPublishing}
-            changeVideoSource={changeVideoSource}
-          />
-          <EndCallButton handleEndCall={endCall} />
-        </div>
+            <MuteVideoButton
+              toggleVideo={toggleVideo}
+              hasVideo={hasVideo}
+              getVideoSource={getVideoSource}
+              cameraPublishing={cameraPublishing}
+              changeVideoSource={changeVideoSource}
+            />
+            <EndCallButton handleEndCall={endCall} />
+          </div>
           <MoreOptionsButton
             participants={participants}
             room={room}
