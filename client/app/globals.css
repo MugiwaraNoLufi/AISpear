@@ -176,3 +176,8 @@
     74.1% 44.1%
   );
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

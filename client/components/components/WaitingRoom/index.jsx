@@ -284,7 +284,7 @@ export default function WaitingRoom({ location }) {
 
   return (
     <>
-      <div className="px-6 py-24 bg-white isolate sm:py-32 lg:px-8">
+      <div className="flex-col px-6 py-24 bg-white flex-center isolate sm:py-32 lg:px-8">
         <div
           class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
           aria-hidden="true"
@@ -443,13 +443,13 @@ export default function WaitingRoom({ location }) {
               </div>
             </div>
           </form>
-
           <div
             id="waiting-room-video-container"
             className="flex items-center justify-center my-4 min-h-40"
             ref={waitingRoomVideoContainer}
           ></div>
-          <div className="flex flex-col mb-4">
+          {/* Video Settings */}
+          <div className="flex-col mb-4 space-x-3 flex-center">
             <AudioSettings
               className="flex justify-between"
               hasAudio={localAudio}
@@ -466,17 +466,17 @@ export default function WaitingRoom({ location }) {
               onVideoChange={handleVideoChange}
             />
           </div>
+          {/* Video Filter */}
           <VideoFilter handleChangeVideoFilter={handleChangeVideoFilter} />
         </div>
-        <div className="grid grid-cols-1 gap-4">
-          <button
-            className="inline-flex items-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            onClick={handleJoinClick}
-            disabled={!roomName || !userName}
-          >
-            Join Call
-          </button>
-        </div>
+        {/* Video Call Joining Button */}
+        <button
+          className="inline-flex items-center px-4 py-3 mt-5 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          onClick={handleJoinClick}
+          disabled={!roomName || !userName}
+        >
+          Join Call
+        </button>
       </div>
 
       {accessAllowed !== DEVICE_ACCESS_STATUS.ACCEPTED && (
