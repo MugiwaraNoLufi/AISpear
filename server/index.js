@@ -42,6 +42,18 @@ io.on("connection", (socket) => {
     io.emit("get-users", onlineUsers);
   });
 
+  socket.on("send_message", async (data, cb) => {
+    try {
+      const { author, receiver, message, type, mineType, fileName } = data;
+      console.log("Message Send", data);
+      const playerId = uuidv4();
+      io.to(receiver.socketId).emit("receive_message", data);
+      cb({ ...data, playerId });
+    } catch (error) {
+      console.log("error", error.message);
+    }
+  });
+
   socket.on("disconnect", () => {
     onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id);
     console.log("user disconnected", onlineUsers);

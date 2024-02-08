@@ -17,7 +17,7 @@ const SideBar = ({ onlineUsers, author, handleUserClick }) => {
         <div className="flex flex-col space-y-1 mt-4 -mx-2 h-full overflow-y-auto">
           {onlineUsers &&
             onlineUsers
-              .filter((user) => user.userId !== author)
+              .filter((user) => user.username !== author)
               .map((user) => (
                 <button
                   className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2"
@@ -27,7 +27,7 @@ const SideBar = ({ onlineUsers, author, handleUserClick }) => {
                     H
                   </div>
                   <div className="ml-2 text-sm font-semibold">
-                    {user.userId}
+                    {user.username}
                   </div>
                 </button>
               ))}
