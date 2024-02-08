@@ -1,10 +1,8 @@
-"use client"
-import React from 'react'
-import EndCall from '@/components/components/EndCall'
+"use client";
+import React from "react";
+import EndCall from "@/components/video/components/EndCall";
 const page = () => {
-  return (
-<EndCall/>
-  )
-}
+  return <EndCall />;
+};
 
-export default page
+export default page;
