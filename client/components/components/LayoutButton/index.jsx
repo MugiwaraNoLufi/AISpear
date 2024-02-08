@@ -22,22 +22,24 @@ export default function LayoutButton({ room }) {
         <FaTh />
       </button>
       {showMenu && (
-        <div className="menu">
+        <div className="absolute flex flex-col gap-3 bg-white top-[39rem] right-[-3.25rem]">
           <div
-            className={`menu-item ${layOut === "grid" ? "active" : ""}`}
+            className={`menu-item flex flex-row gap-3 items-center justify-even ${
+              layOut === "grid" ? "active" : ""
+            }`}
             onClick={() => handleLayOutChange("grid")}
           >
-            <FaTh />
-            <span>Grid</span>
+            <FaTh className="text-gray-400" />
+            <span className="text-gray-400">Grid</span>
           </div>
           <div
-            className={`menu-item ${
+            className={`menu-item flex flex-row gap-3 items-center justify-even ${
               layOut === "active-speaker" ? "active" : ""
             }`}
             onClick={() => handleLayOutChange("active-speaker")}
           >
             <FaUserCircle />
-            <span>Active Speaker</span>
+            <span className="text-gray-400">Active Speaker</span>
           </div>
         </div>
       )}

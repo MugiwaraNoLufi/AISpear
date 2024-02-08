@@ -42,7 +42,9 @@ function VideoFilter({ handleChangeVideoFilter }) {
   if (VideoExpress.hasMediaProcessorSupport()) {
     return (
       <div className="p-4">
-        <h3 className="mb-5 text-lg font-bold">Background Options</h3>
+        <h3 className="mb-5 text-lg font-bold dark:text-white">
+          Background Options
+        </h3>
         <div className="flex items-center space-x-4">
           {loading && (
             <div className="flex items-center justify-center">

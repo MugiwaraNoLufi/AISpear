@@ -426,7 +426,7 @@ export default function WaitingRoom({ location }) {
                   <div>
                     <label
                       htmlFor="videoDevice"
-                      className="block text-sm font-semibold leading-6 text-black"
+                      className="block text-sm font-semibold leading-6 text-black dark:text-white"
                     >
                       Select Video Input Device
                     </label>

@@ -7,10 +7,13 @@ const AudioSettings = ({ hasAudio, onAudioChange }) => {
       {/* Other components that are used in this component: */}
 
       <div className="flex items-center mb-4 space-x-3">
-        <MdMic className="text-lg text-gray-700" />
+        <MdMic className="text-lg text-gray-700 dark:text-white" />
 
         <div className="mt-3 ">
-          <label for="AudioToggle" class="text-sm text-gray-700">
+          <label
+            for="AudioToggle"
+            class="text-sm text-gray-700 dark:text-white"
+          >
             Microphone
           </label>
         </div>
