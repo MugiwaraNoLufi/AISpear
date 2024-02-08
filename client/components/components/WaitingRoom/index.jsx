@@ -461,7 +461,7 @@ export default function WaitingRoom({ location }) {
               className="w-full"
             />
             <VideoSettings
-              className="flex justify-between"
+              className="flex items-center justify-between mt-4"
               hasVideo={localVideo}
               onVideoChange={handleVideoChange}
             />

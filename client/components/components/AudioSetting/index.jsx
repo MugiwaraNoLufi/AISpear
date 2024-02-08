@@ -1,26 +1,32 @@
-import React from 'react';
-import { MdMic } from 'react-icons/md';
+import React from "react";
+import { MdMic } from "react-icons/md";
 
 const AudioSettings = ({ hasAudio, onAudioChange }) => {
   return (
-    <div className="flex items-center space-x-3">
-      <MdMic className="text-lg text-gray-700" />
-      <div className="text-sm text-gray-700">Microphone</div>
-      <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-        <input
-          type="checkbox"
-          name="AudioToggle"
-          id="AudioToggle"
-          checked={hasAudio}
-          onChange={onAudioChange}
-          className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
-        />
-        <label
-          htmlFor="AudioToggle"
-          className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-        ></label>
+    <>
+      {/* Other components that are used in this component: */}
+
+      <div className="flex items-center mb-4 space-x-3">
+        <MdMic className="text-lg text-gray-700" />
+
+        <div className="mt-3 ">
+          <label for="AudioToggle" class="text-sm text-gray-700">
+            Microphone
+          </label>
+        </div>
+
+        <div className="flex items-center justify-center">
+          <input
+            name="AudioToggle"
+            id="AudioToggle"
+            checked={hasAudio}
+            onChange={onAudioChange}
+            type="checkbox"
+            class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
