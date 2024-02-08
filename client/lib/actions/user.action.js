@@ -8,6 +8,7 @@ export const createUser = async (user) => {
   try {
     await connectToDatabase();
     const newUser = await User.create(user);
+
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     console.log("Error creating user", error);
@@ -46,8 +47,9 @@ export async function getUserById(clerkId) {
     connectToDatabase();
     console.log("Printing from clerkid", clerkId);
     const user = await User.findOne({ clerkId });
+    console.log("Printing from user", user);
     if (!user) throw new Error("User not found");
-    console.log(user);
+    console.log("Action", user);
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
     console.log(error);

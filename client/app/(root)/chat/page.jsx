@@ -1,40 +1,129 @@
 "use client";
 
+import { currentUser, useAuth } from "@clerk/nextjs";
+import ReceivedMessage from "./components/ReceivedMessage";
+import SideBar from "./components/SideBar";
+import YourMessage from "./components/YourMessage";
+import { getUserById } from "@/lib/actions/user.action";
+import { useEffect, useRef, useState } from "react";
+import io from "socket.io-client";
+import { useRouter } from "next/navigation";
 function page() {
+  const [user, setUser] = useState(null); // Set initial state to null
+  const [dataBaseMessages, setDataBaseMessages] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
+  const [file, setFile] = useState(null); // Set initial state to null
+  const [selectedLang, setSelectedLang] = useState("en");
+  const [receiver, setReceiver] = useState(null);
+  const { userId } = useAuth();
+  console.log(userId);
+  const [onlineUsers, setOnlineUsers] = useState(null);
+  const socketRef = useRef();
+  const router = useRouter();
+
+  const handleUserClick = (clickedUserId) => {
+    setReceiver(clickedUserId);
+  };
+
+  const clearReceiverSocketId = () => {
+    setReceiver(null);
+  };
+
+  const sendMessage = async () => {
+    if (currentMessage.trim() === "" || !receiver || !user || !userId) return;
+
+    if (file) {
+      // ... (unchanged code for file handling)
+    } else {
+      console.log("sending message", socketRef.current.id);
+      const messageData = {
+        receiver: receiver.socketId || "",
+        author: socketRef.current.id || "",
+        message: currentMessage,
+        type: "text",
+      };
+
+      let translatedMessageData = { ...messageData };
+
+      if (selectedLang !== "en") {
+        const translatedText = await translateText(
+          currentMessage,
+          selectedLang,
+          "en"
+        );
+        translatedMessageData.message = translatedText?.translatedText;
+      }
+
+      socketRef.current.emit("send_message", translatedMessageData, (cb) => {
+        const updatedMessageList = [
+          ...messageList,
+          {
+            ...messageData,
+            author: { username: user.username, _id: user._id },
+            receiver: { _id: receiver.userId, username: receiver.username },
+            playerId: cb.playerId,
+          },
+        ];
+        setMessageList(updatedMessageList);
+      });
+
+      setCurrentMessage("");
+    }
+  };
+
+  const handleReceiveMessage = async (data) => {
+    if (data.type === "text" && selectedLang !== "en") {
+      const translatedText = await translateText(
+        data.message,
+        "en",
+        selectedLang
+      );
+      data.message = translatedText?.translatedText;
+    }
+    setMessageList((prevData) => [...prevData, data]);
+  };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const fetchedUser = await getUserById(userId);
+      console.log(fetchedUser);
+      setUser(fetchedUser);
+    };
+    fetchUser();
+  }, [userId]);
+
+  useEffect(() => {
+    socketRef.current = io("http://localhost:5000");
+    socketRef.current.emit("new-user-add", user?._id, user?.username);
+    socketRef.current.on("get-users", (users) => {
+      console.log(users);
+      setOnlineUsers(users);
+    });
+
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, [user]);
+
+  useEffect(() => {
+    socketRef.current.on("receive_message", handleReceiveMessage);
+
+    return () => {
+      socketRef.current.off("receive_message", handleReceiveMessage);
+    };
+  }, [selectedLang]);
+
   return (
     <div className="flex h-screen antialiased text-gray-800">
-      <div className="flex flex-row w-full h-full overflow-x-hidden">
-        <div className="flex flex-col flex-shrink-0 w-64 py-8 pl-6 pr-2 bg-white">
-          <div className="flex flex-col w-full px-4 py-6 bg-indigo-100 border border-gray-200 rounded-lg items-left">
-            <div className="text-sm font-semibold">Aminos Co.</div>
-            <div className="text-xs text-gray-500">Lead UI/UX Designer</div>
-          </div>
-          <div className="flex flex-col mt-8">
-            <div className="flex flex-row items-center justify-between text-xs">
-              <span className="font-bold">Active Conversations</span>
-              <span className="flex items-center justify-center w-4 h-4 bg-gray-300 rounded-full">
-                4
-              </span>
-            </div>
-            <div className="flex flex-col h-full mt-4 -mx-2 space-y-1 overflow-y-auto">
-              <button className="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
-                <div className="flex items-center justify-center w-8 h-8 bg-indigo-200 rounded-full">
-                  H
-                </div>
-                <div className="ml-2 text-sm font-semibold">Henry Boyd</div>
-              </button>
-              <button className="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
-                <div className="flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full">
-                  M
-                </div>
-                <div className="ml-2 text-sm font-semibold">Marta Curtis</div>
-                <div className="flex items-center justify-center w-4 h-4 ml-auto text-xs leading-none text-white bg-red-500 rounded">
-                  2
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="flex flex-row h-full w-full overflow-x-hidden">
+        {/* SideBar */}
+        <SideBar
+          onlineUsers={onlineUsers}
+          author={user?._id}
+          handleUserClick={handleUserClick}
+        />
+        {/* SideBar End */}
         <div className="flex flex-col flex-auto h-full p-6">
           <div className="flex flex-col flex-auto flex-shrink-0 h-full p-4 bg-gray-100 rounded-2xl">
             <div className="flex flex-col h-full mb-4 overflow-x-auto">
@@ -123,6 +212,12 @@ function page() {
                   <input
                     type="text"
                     className="flex w-full h-10 pl-4 border rounded-xl focus:outline-none focus:border-indigo-300"
+                    value={currentMessage}
+                    placeholder="Hey..."
+                    onChange={(event) => setCurrentMessage(event.target.value)}
+                    onKeyPress={(event) =>
+                      event.key === "Enter" && sendMessage()
+                    }
                   />
                   <button className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-gray-400 hover:text-gray-600">
                     <svg
@@ -143,7 +238,10 @@ function page() {
                 </div>
               </div>
               <div className="ml-4">
-                <button className="flex items-center justify-center flex-shrink-0 px-4 py-3 text-white bg-indigo-500 hover:bg-indigo-600 rounded-xl">
+                <button
+                  className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-3 flex-shrink-0 cursor-pointer"
+                  onClick={sendMessage}
+                >
                   <svg
                     className="w-4 h-4 -mt-px transform rotate-45"
                     fill="none"
