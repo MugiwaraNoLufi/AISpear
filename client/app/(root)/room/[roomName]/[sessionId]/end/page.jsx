@@ -1,9 +1,9 @@
 "use client"
 import React from 'react'
-import WaitingRoom from '@/components/components/WaitingRoom'
+import EndCall from '@/components/components/EndCall'
 const page = () => {
   return (
-    <WaitingRoom />
+<EndCall/>
   )
 }
 

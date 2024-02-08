@@ -8,6 +8,10 @@ export const NavLinks = [
     title: "Chat",
   },
   {
+    route: "/video",
+    title: "Video",
+  },
+  {
     route: "/profile",
     title: "profile",
   },
