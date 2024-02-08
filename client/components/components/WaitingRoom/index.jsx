@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 
+import { PreferencesContext } from '../../../app/(root)/context/PreferencesContext';
+// import { useNavigate } from "react-router-dom";
 import { useRouter } from "next/navigation";
 import * as VideoExpress from "@vonage/video-express";
 import usePreviewPublisher from "../../hooks/usePreviewPublisher";
@@ -14,7 +16,10 @@ import HighitlightText from "@/components/shared/HighitlightText";
 import GradientBg from "@/components/shared/GradientBg";
 
 export default function WaitingRoom({ location }) {
-  const router = useRouter();
+  
+//   const classes = useStyles();
+const { preferences, setPreferences } = useContext(PreferencesContext);
+  const router=useRouter();
   const { user, setUser } = useContext(UserContext);
   const waitingRoomVideoContainer = useRef();
   const roomToJoin = location?.state?.room || "";
@@ -184,6 +189,12 @@ export default function WaitingRoom({ location }) {
       setUserName(localStorage.getItem("username"));
     }
   }, [redirectHttps]);
+  useEffect(() => {
+    if (userName !== preferences.userName) {
+      setPreferences({ userName: userName });
+    }
+  }, [userName, setPreferences, preferences.userName]);
+
 
   useEffect(() => {
     console.log("user hai kya", user, "local video", localVideo);

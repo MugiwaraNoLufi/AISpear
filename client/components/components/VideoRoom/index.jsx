@@ -6,15 +6,35 @@ import { UserContext } from "../../../app/(root)/context/UserContext"
 import ToolBar from "../ToolBar";
 import NetworkToast from "../NetworkToast";
 import useScreenSharing from "../../hooks/useScreenSharing";
+import usePreviewPublisher from "../../hooks/usePreviewPublisher";
+import { PreferencesContext } from '../../../app/(root)/context/PreferencesContext';
+import { useSymbalai } from "@/components/hooks/useSymbalai";
 
 export default function VideoRoom() {
+  const { createPreview, destroyPreview, previewPublisher, logLevel, previewMediaCreated, deviceInfo, accessAllowed } = usePreviewPublisher();
+
   const { user } = useContext(UserContext);
   const [credentials, setCredentials] = useState(null);
   const [error, setError] = useState(null);
   const { createCall, room, participants, connected, networkStatus, cameraPublishing, localParticipant } = useRoom();
   const { isScreenSharing, startScreenSharing, stopScreenSharing } = useScreenSharing({ room });
+ 
   const roomContainer = useRef();
   let { roomName } = useParams();
+  console.log("pub",previewPublisher,cameraPublishing)
+//   const {
+//     captions,
+//     messages,
+//     insights,
+//     name,
+//     myCaptions,
+//     stream,
+//     stopTranscription,
+//   } = useSymbalai({
+//     previewPublisher,
+//  cameraPublishing,
+//  room
+//   });
 
   useEffect(() => {
     getCredentials(roomName)
@@ -50,6 +70,17 @@ export default function VideoRoom() {
           {isScreenSharing && <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center text-xl text-white">You Are Screensharing</div>}
         </div>
       </div>
+      {/* <div className="border-8 bg-red-500">
+        <h1>bdfhbd</h1>
+          {myCaptions && (
+            <span
+              style={{ fontWeight: 'bold', fontSize: '21px', color: 'black' }}
+            >
+              You
+            </span>
+          )}
+          {myCaptions && `: ${myCaptions}`}
+        </div> */}
       <ToolBar
         room={room}
         participants={participants}
