@@ -16,7 +16,7 @@ import HighitlightText from "@/components/shared/HighitlightText";
 import GradientBg from "@/components/shared/GradientBg";
 
 export default function WaitingRoom({ location }) {
-  //   const classes = useStyles();
+  //   const classNamees = useStyles();
   const { preferences, setPreferences } = useContext(PreferencesContext);
   const router = useRouter();
   const { user, setUser } = useContext(UserContext);
@@ -294,35 +294,29 @@ export default function WaitingRoom({ location }) {
 
   return (
     <>
-      <div className="flex-col px-6 py-24 bg-white dark:bg-gray-900 flex-center isolate sm:py-32 lg:px-8">
-        {/* <div
-          class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-          aria-hidden="true"
-        >
-          <div class="custom-clip-path relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"></div>
-        </div> */}
+      <div classNameName="flex-col px-6 py-24 bg-white dark:bg-gray-900 flex-center isolate sm:py-32 lg:px-8">
         <GradientBg />
         {/* Heading Text */}
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             <HighitlightText text="Welcome to Video Express" />
           </h2>
-          <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-white">
+          <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-white">
             Join The Video Call Fill Rereqiured Details
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center sm:flex-row lg:flew-row lg:gap-10">
-          <form className="max-w-xl mx-auto mt-16 sm:mt-20">
-            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div classNameName="flex flex-col items-center justify-center sm:flex-row lg:flew-row lg:gap-10">
+          <form classNameName="max-w-xl mx-auto mt-16 sm:mt-20">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label
                   for="first-name"
-                  className="block text-sm font-semibold leading-6 text-black dark:text-white"
+                  classNameName="block text-sm font-semibold leading-6 text-black dark:text-white"
                 >
                   Room Name
                 </label>
-                <div class="mt-2.5">
+                <div className="mt-2.5">
                   <input
                     type="text"
                     placeholder="Room Name"
@@ -332,13 +326,13 @@ export default function WaitingRoom({ location }) {
                     name="first-name"
                     id="first-name"
                     autocomplete="given-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                    classNameName="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
 
               {isRoomNameInvalid && (
-                <p className="text-xs italic text-red-500">
+                <p classNameName="text-xs italic text-red-500">
                   Please enter a room name.
                 </p>
               )}
@@ -346,11 +340,11 @@ export default function WaitingRoom({ location }) {
               <div>
                 <label
                   for="name"
-                  className="block text-sm font-semibold leading-6 text-black dark:text-white"
+                  classNameName="block text-sm font-semibold leading-6 text-black dark:text-white"
                 >
                   Name
                 </label>
-                <div class="mt-2.5">
+                <div className="mt-2.5">
                   <input
                     type="text"
                     placeholder="Name"
@@ -360,23 +354,23 @@ export default function WaitingRoom({ location }) {
                     name="name"
                     id="name"
                     autocomplete="given-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2  text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                    classNameName="block w-full rounded-md border-0 px-3.5 py-2  text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
 
               {isUserNameInvalid && (
-                <p className="text-xs italic text-red-500">
+                <p classNameName="text-xs italic text-red-500">
                   Please enter a name.
                 </p>
               )}
-              <div className="flex flex-col mb-4">
+              <div classNameName="flex flex-col mb-4">
                 {deviceInfo && previewMediaCreated && (
                   <>
-                    <div className="mb-2">
+                    <div classNameName="mb-2">
                       <label
                         htmlFor="audioDevice"
-                        className="block text-sm font-semibold leading-6 text-black"
+                        classNameName="block text-sm font-semibold leading-6 text-black"
                       >
                         Select Audio Input Device
                       </label>
@@ -384,7 +378,7 @@ export default function WaitingRoom({ location }) {
                         id="audioDevice"
                         value={audioDevice}
                         onChange={handleAudioSource}
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                        classNameName="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                       >
                         {deviceInfo.audioInputDevices.map((device) => (
                           <option key={device.deviceId} value={device.deviceId}>
@@ -395,10 +389,10 @@ export default function WaitingRoom({ location }) {
                     </div>
 
                     {deviceInfo.audioOutputDevices && (
-                      <div className="mb-2">
+                      <div classNameName="mb-2">
                         <label
                           htmlFor="audioOutputDevice"
-                          className="block text-sm font-semibold leading-6 text-black dark:text-white"
+                          classNameName="block text-sm font-semibold leading-6 text-black dark:text-white"
                         >
                           Select Audio Output Device
                         </label>
@@ -406,7 +400,7 @@ export default function WaitingRoom({ location }) {
                           id="audioOutputDevice"
                           value={audioOutputDevice}
                           onChange={handleAudioOutput}
-                          className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                          classNameName="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                         >
                           {deviceInfo.audioOutputDevices.map((device) => (
                             <option
@@ -426,7 +420,7 @@ export default function WaitingRoom({ location }) {
                   <div>
                     <label
                       htmlFor="videoDevice"
-                      className="block text-sm font-semibold leading-6 text-black dark:text-white"
+                      classNameName="block text-sm font-semibold leading-6 text-black dark:text-white"
                     >
                       Select Video Input Device
                     </label>
@@ -434,7 +428,7 @@ export default function WaitingRoom({ location }) {
                       id="videoDevice"
                       value={videoDevice}
                       onChange={handleVideoSource}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                      classNameName="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                     >
                       {deviceInfo.videoInputDevices && (
                         <>
@@ -455,28 +449,28 @@ export default function WaitingRoom({ location }) {
             </div>
           </form>
           {/* Video Preview Container */}
-          <hr class="border-gray-800 dark:border-white" />
-          <div className="p-4 border-black bottom-4 flex-center ">
+          <hr className="border-gray-800 dark:border-white" />
+          <div classNameName="p-4 border-black bottom-4 flex-center ">
             <div
               id="waiting-room-video-container"
-              className="flex items-center justify-center my-4 mt-10 min-h-40"
+              classNameName="flex items-center justify-center my-4 mt-10 min-h-40"
               ref={waitingRoomVideoContainer}
             ></div>
           </div>
           {/* Video Settings */}
-          <div className="flex-col mb-4 space-x-3 flex-center">
+          <div classNameName="flex-col mb-4 space-x-3 flex-center">
             <AudioSettings
-              className="flex justify-between"
+              classNameName="flex justify-between"
               hasAudio={localAudio}
               onAudioChange={handleAudioChange}
             />
             <LinearProgress
               variant="determinate"
               value={logLevel}
-              className="w-full"
+              classNameName="w-full"
             />
             <VideoSettings
-              className="flex items-center justify-between mt-4"
+              classNameName="flex items-center justify-between mt-4"
               hasVideo={localVideo}
               onVideoChange={handleVideoChange}
             />
@@ -486,7 +480,7 @@ export default function WaitingRoom({ location }) {
         </div>
         {/* Video Call Joining Button */}
         <button
-          className="inline-flex items-center px-4 py-3 mt-5 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          classNameName="inline-flex items-center px-4 py-3 mt-5 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           onClick={handleJoinClick}
           disabled={!roomName || !userName}
         >

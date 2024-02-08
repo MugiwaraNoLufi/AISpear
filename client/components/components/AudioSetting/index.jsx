@@ -12,7 +12,7 @@ const AudioSettings = ({ hasAudio, onAudioChange }) => {
         <div className="mt-3 ">
           <label
             for="AudioToggle"
-            class="text-sm text-gray-700 dark:text-white"
+            className="text-sm text-gray-700 dark:text-white"
           >
             Microphone
           </label>
@@ -25,7 +25,7 @@ const AudioSettings = ({ hasAudio, onAudioChange }) => {
             checked={hasAudio}
             onChange={onAudioChange}
             type="checkbox"
-            class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500"
+            className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500"
           />
         </div>
       </div>
