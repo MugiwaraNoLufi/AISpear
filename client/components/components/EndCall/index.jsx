@@ -28,7 +28,7 @@ export default function EndCall() {
   }, [sessionId]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex-col flex-center ">
       <div className="mb-4 text-center">
         <h1 className="mb-4 text-3xl">
           <HighitlightText text="Thank you for joining the meeting" />
