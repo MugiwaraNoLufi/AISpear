@@ -15,8 +15,11 @@ const LinearProgress = ({ variant, value }) => {
   }
 
   return (
-    <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-      <div className={`h-full ${progressColorClass}`} style={{ width: `${value}%` }}></div>
+    <div className="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+      <div
+        className={`h-full ${progressColorClass}`}
+        style={{ width: `${value}%` }}
+      ></div>
     </div>
   );
 };

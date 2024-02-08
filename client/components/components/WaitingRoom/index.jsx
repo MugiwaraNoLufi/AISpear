@@ -303,110 +303,147 @@ export default function WaitingRoom({ location }) {
 
         <div className="flex flex-col items-center justify-center">
           <form className="max-w-xl mx-auto mt-16 sm:mt-20">
-            <input
-              className="w-full p-2 border border-gray-400 rounded-md"
-              type="text"
-              placeholder="Room Name"
-              value={roomName}
-              onChange={onChangeRoomName}
-              onKeyDown={onKeyDown}
-            />
-            {isRoomNameInvalid && (
-              <p className="text-xs italic text-red-500">
-                Please enter a room name.
-              </p>
-            )}
+            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label
+                  for="first-name"
+                  className="block text-sm font-semibold leading-6 text-black"
+                >
+                  Room Name
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    type="text"
+                    placeholder="Room Name"
+                    value={roomName}
+                    onChange={onChangeRoomName}
+                    onKeyDown={onKeyDown}
+                    name="first-name"
+                    id="first-name"
+                    autocomplete="given-name"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-            <input
-              className="w-full p-2 mt-4 border border-gray-400 rounded-md"
-              type="text"
-              placeholder="Name"
-              value={userName}
-              onChange={onChangeParticipantName}
-              onKeyDown={onKeyDown}
-            />
-            {isUserNameInvalid && (
-              <p className="text-xs italic text-red-500">
-                Please enter a name.
-              </p>
-            )}
-            <div className="flex flex-col mb-4">
-              {deviceInfo && previewMediaCreated && (
-                <>
-                  <div className="mb-2">
-                    <label
-                      htmlFor="audioDevice"
-                      className="block mb-1 text-sm font-medium text-gray-700"
-                    >
-                      Select Audio Input Device
-                    </label>
-                    <select
-                      id="audioDevice"
-                      value={audioDevice}
-                      onChange={handleAudioSource}
-                      className="w-full p-2 border border-gray-300 rounded-md"
-                    >
-                      {deviceInfo.audioInputDevices.map((device) => (
-                        <option key={device.deviceId} value={device.deviceId}>
-                          {device.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+              {isRoomNameInvalid && (
+                <p className="text-xs italic text-red-500">
+                  Please enter a room name.
+                </p>
+              )}
 
-                  {deviceInfo.audioOutputDevices && (
+              <div>
+                <label
+                  for="name"
+                  className="block text-sm font-semibold leading-6 text-black"
+                >
+                  Name
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={userName}
+                    onChange={onChangeParticipantName}
+                    onKeyDown={onKeyDown}
+                    name="name"
+                    id="name"
+                    autocomplete="given-name"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              {isUserNameInvalid && (
+                <p className="text-xs italic text-red-500">
+                  Please enter a name.
+                </p>
+              )}
+              <div className="flex flex-col mb-4">
+                {deviceInfo && previewMediaCreated && (
+                  <>
                     <div className="mb-2">
                       <label
-                        htmlFor="audioOutputDevice"
-                        className="block mb-1 text-sm font-medium text-gray-700"
+                        htmlFor="audioDevice"
+                        className="block text-sm font-semibold leading-6 text-black"
                       >
-                        Select Audio Output Device
+                        Select Audio Input Device
                       </label>
                       <select
-                        id="audioOutputDevice"
-                        value={audioOutputDevice}
-                        onChange={handleAudioOutput}
-                        className="w-full p-2 border border-gray-300 rounded-md"
+                        id="audioDevice"
+                        value={audioDevice}
+                        onChange={handleAudioSource}
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                       >
-                        {deviceInfo.audioOutputDevices.map((device) => (
+                        {deviceInfo.audioInputDevices.map((device) => (
                           <option key={device.deviceId} value={device.deviceId}>
                             {device.label}
                           </option>
                         ))}
                       </select>
                     </div>
-                  )}
-                </>
-              )}
 
-              {deviceInfo && previewMediaCreated && (
-                <div>
-                  <label
-                    htmlFor="videoDevice"
-                    className="block mb-1 text-sm font-medium text-gray-700"
-                  >
-                    Select Video Input Device
-                  </label>
-                  <select
-                    id="videoDevice"
-                    value={videoDevice}
-                    onChange={handleVideoSource}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  >
-                    {deviceInfo.videoInputDevices && (
-                      <>
-                        {deviceInfo.videoInputDevices.map((device) => (
-                          <option key={device.deviceId} value={device.deviceId}>
-                            {device.label}
-                          </option>
-                        ))}
-                      </>
+                    {deviceInfo.audioOutputDevices && (
+                      <div className="mb-2">
+                        <label
+                          htmlFor="audioOutputDevice"
+                          className="block text-sm font-semibold leading-6 text-black"
+                        >
+                          Select Audio Output Device
+                        </label>
+                        <select
+                          id="audioOutputDevice"
+                          value={audioOutputDevice}
+                          onChange={handleAudioOutput}
+                          className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                        >
+                          {deviceInfo.audioOutputDevices.map((device) => (
+                            <option
+                              key={device.deviceId}
+                              value={device.deviceId}
+                            >
+                              {device.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     )}
-                  </select>
-                </div>
-              )}
+                  </>
+                )}
+
+                {deviceInfo && previewMediaCreated && (
+                  <div>
+                    <label
+                      htmlFor="videoDevice"
+                      className="block text-sm font-semibold leading-6 text-black"
+                    >
+                      Select Video Input Device
+                    </label>
+                    <select
+                      id="videoDevice"
+                      value={videoDevice}
+                      onChange={handleVideoSource}
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                    >
+                      {deviceInfo.videoInputDevices && (
+                        <>
+                          {deviceInfo.videoInputDevices.map((device) => (
+                            <option
+                              key={device.deviceId}
+                              value={device.deviceId}
+                            >
+                              {device.label}
+                            </option>
+                          ))}
+                        </>
+                      )}
+                    </select>
+                  </div>
+                )}
+              </div>
             </div>
           </form>
+
           <div
             id="waiting-room-video-container"
             className="flex items-center justify-center my-4 min-h-40"
@@ -433,7 +470,7 @@ export default function WaitingRoom({ location }) {
         </div>
         <div className="grid grid-cols-1 gap-4">
           <button
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            className="inline-flex items-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
             onClick={handleJoinClick}
             disabled={!roomName || !userName}
           >
