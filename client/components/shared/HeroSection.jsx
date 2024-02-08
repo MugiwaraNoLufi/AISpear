@@ -2,10 +2,12 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import HighitlightText from "./HighitlightText";
+import GradientBg from "./GradientBg";
 
 export default function HeroSection() {
   return (
-    <section className="pt-24 bg-white dark:bg-slate-900 dark:text-white">
+    <section className="pt-24 dark:bg-slate-900 dark:text-white">
+      <GradientBg />
       <div className="px-12 mx-auto max-w-7xl">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
           <h1 className="mb-8 text-4xl lg:text-7xl font-extrabold  tracking-normal text-gray-700 dark:text-white md:text-6xl  md:tracking-tight md:leading-[4.35rem]">

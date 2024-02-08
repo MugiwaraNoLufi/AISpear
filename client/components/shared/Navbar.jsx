@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link
             className="flex-none text-xl font-semibold dark:text-white"
-            href="#"
+            href="/"
           >
             <HighitlightText text="CulturalConnect" />
           </Link>

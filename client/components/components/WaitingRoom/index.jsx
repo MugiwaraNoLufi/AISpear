@@ -11,6 +11,7 @@ import VideoFilter from "../VideoFilter";
 import LinearProgress from "../LinearProgress";
 import { DEVICE_ACCESS_STATUS } from "./../constants";
 import HighitlightText from "@/components/shared/HighitlightText";
+import GradientBg from "@/components/shared/GradientBg";
 
 export default function WaitingRoom({ location }) {
   const router = useRouter();
@@ -284,30 +285,31 @@ export default function WaitingRoom({ location }) {
 
   return (
     <>
-      <div className="flex-col px-6 py-24 bg-white flex-center isolate sm:py-32 lg:px-8">
-        <div
+      <div className="flex-col px-6 py-24 bg-white dark:bg-gray-900 flex-center isolate sm:py-32 lg:px-8">
+        {/* <div
           class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
           aria-hidden="true"
         >
           <div class="custom-clip-path relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"></div>
-        </div>
+        </div> */}
+        <GradientBg />
         {/* Heading Text */}
         <div class="mx-auto max-w-2xl text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             <HighitlightText text="Welcome to Video Express" />
           </h2>
-          <p class="mt-2 text-lg leading-8 text-gray-600">
+          <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-white">
             Join The Video Call Fill Rereqiured Details
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center sm:flex-row lg:flew-row lg:gap-10">
           <form className="max-w-xl mx-auto mt-16 sm:mt-20">
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label
                   for="first-name"
-                  className="block text-sm font-semibold leading-6 text-black"
+                  className="block text-sm font-semibold leading-6 text-black dark:text-white"
                 >
                   Room Name
                 </label>
@@ -335,7 +337,7 @@ export default function WaitingRoom({ location }) {
               <div>
                 <label
                   for="name"
-                  className="block text-sm font-semibold leading-6 text-black"
+                  className="block text-sm font-semibold leading-6 text-black dark:text-white"
                 >
                   Name
                 </label>
@@ -349,7 +351,7 @@ export default function WaitingRoom({ location }) {
                     name="name"
                     id="name"
                     autocomplete="given-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2  text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>

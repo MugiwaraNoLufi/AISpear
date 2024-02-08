@@ -45,7 +45,7 @@ export default function EndCall() {
 
       {/* Other components for recordings */}
       <div className="w-1/2">
-        <div className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md flex-center">
+        <div className="flex-col px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md flex-center">
           <h3 className="text-lg font-semibold text-center">
             {recordings && recordings.length
               ? "Recordings"
