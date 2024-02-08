@@ -70,7 +70,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+                src="https://doc.traefik.io/traefik/assets/img/webui-dashboard.png"
                 alt="React"
                 width={1000}
                 height={1000}
