@@ -12,9 +12,12 @@ export default function Footer() {
             href="#"
             className="flex items-center justify-center font-medium text-white title-font md:justify-start"
           >
-            <HighitlightText text="CulturalConnect" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl">
+              {" "}
+              <HighitlightText text="CulturalConnect" />
+            </h2>
           </Link>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500">
             Uniting India with AI-Powered Sign Language Recognition, Instant
             Language Translation, and Enhanced Chatting & Video Calling
             Features.
@@ -134,14 +137,14 @@ export default function Footer() {
       <div className="bg-gray-800 bg-opacity-75">
         <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
           <p className="text-sm text-center text-gray-400 sm:text-left">
-            © 2020 Tailblocks —
+            © 2020 CulturalConnect —
             <Link
-              href="https://twitter.com/knyttneve"
+              href="https://twitter.com/Tech_Nodes_"
               rel="noopener noreferrer"
               className="ml-1 text-gray-500"
               target="_blank"
             >
-              @knyttneve
+              @TeamTechNodes
             </Link>
           </p>
           <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
