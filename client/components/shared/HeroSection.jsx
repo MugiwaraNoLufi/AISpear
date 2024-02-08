@@ -8,9 +8,9 @@ export default function HeroSection() {
     <section className="pt-24 bg-white dark:bg-slate-900 dark:text-white">
       <div className="px-12 mx-auto max-w-7xl">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
-          <h1 className="mb-8 text-4xl font-extrabold  tracking-normal text-gray-700 dark:text-white md:text-6xl md:tracking-tight md:leading-[4.35rem]">
-            <span>CulturalConnect</span>{" "}
-            <HighitlightText text="CulturalConnect" />
+          <h1 className="mb-8 text-7xl font-extrabold  tracking-normal text-gray-700 dark:text-white md:text-6xl md:tracking-tight md:leading-[4.35rem]">
+            <span className="text-center text-7xl">CulturalConnect</span>{" "}
+            <HighitlightText text="Language Translation , Enhanced Chatting , Video Calling Features" />
           </h1>
           <p className="px-0 mb-8 text-lg text-gray-600 dark:text-white md:text-xl lg:px-24">
             Uniting India with AI-Powered Sign Language Recognition, Instant
