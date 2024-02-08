@@ -71,8 +71,8 @@ export default async function page() {
             <h4 className="text-xl font-bold text-gray-900">Personal Info</h4>
             <ul className="mt-2 text-gray-700">
               <li className="flex py-2 border-y">
-                <span className="w-24 font-bold">Full name:</span>
-                <span className="text-gray-700">Rahul Das</span>
+                <span className="w-24 font-bold">Full name </span>
+                <span className="text-gray-700">{user.name}</span>
               </li>
               <li className="flex py-2 border-b">
                 <span className="w-24 font-bold">Birthday:</span>
@@ -88,11 +88,11 @@ export default async function page() {
               </li>
               <li className="flex py-2 border-b">
                 <span className="w-24 font-bold">Email:</span>
-                <span className="text-gray-700">amandaross@example.com</span>
+                <span className="text-gray-700">{user.email}</span>
               </li>
               <li className="flex py-2 border-b">
                 <span className="w-24 font-bold">Location:</span>
-                <span className="text-gray-700">New York, US</span>
+                <span className="text-gray-700">Vadodara India</span>
               </li>
               <li className="flex py-2 border-b">
                 <span className="w-24 font-bold">Languages:</span>
@@ -124,7 +124,7 @@ export default async function page() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 333333 333333"
                     shapeRendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
+                    textRendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -141,7 +141,7 @@ export default async function page() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 333333 333333"
                     shapeRendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
+                    textRendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -159,7 +159,7 @@ export default async function page() {
                     width="0"
                     height="0"
                     shapeRendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
+                    textRendering="geometricPrecision"
                     imageRendering="optimizeQuality"
                     fillRule="evenodd"
                     clipRule="evenodd"
