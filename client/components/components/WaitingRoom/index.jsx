@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+
 import { useRouter } from "next/navigation";
 import * as VideoExpress from "@vonage/video-express";
 import usePreviewPublisher from "../../hooks/usePreviewPublisher";
 import AudioSettings from "../AudioSetting";
 import VideoSettings from "../VideoSetting";
 import DeviceAccessAlert from "../DeviceAccessAlert";
-import { UserContext } from "../../../app/(root)/context/UserContext"
+import { UserContext } from "../../../app/(root)/context/UserContext";
 import VideoFilter from "../VideoFilter";
-import LinearProgress from "../LinearProgress"; 
+import LinearProgress from "../LinearProgress";
 import { DEVICE_ACCESS_STATUS } from "./../constants";
+import HighitlightText from "@/components/shared/HighitlightText";
 
 export default function WaitingRoom({ location }) {
-//   const classes = useStyles();
-  const router=useRouter();
+  const router = useRouter();
   const { user, setUser } = useContext(UserContext);
   const waitingRoomVideoContainer = useRef();
   const roomToJoin = location?.state?.room || "";
@@ -21,8 +21,12 @@ export default function WaitingRoom({ location }) {
   const [userName, setUserName] = useState("");
   const [isRoomNameInvalid, setIsRoomNameInvalid] = useState(false);
   const [isUserNameInvalid, setIsUserNameInvalid] = useState(false);
-  const [localAudio, setLocalAudio] = useState(user.defaultSettings.publishAudio);
-  const [localVideo, setLocalVideo] = useState(user.defaultSettings.publishVideo);
+  const [localAudio, setLocalAudio] = useState(
+    user.defaultSettings.publishAudio
+  );
+  const [localVideo, setLocalVideo] = useState(
+    user.defaultSettings.publishVideo
+  );
   const [localVideoSource, setLocalVideoSource] = useState(undefined);
   const [localAudioSource, setLocalAudioSource] = useState(undefined);
   const [localAudioOutput, setLocalAudioOutput] = useState(undefined);
@@ -31,8 +35,19 @@ export default function WaitingRoom({ location }) {
   let [videoDevice, setVideoDevice] = useState("");
   let [audioOutputDevice, setAudioOutputDevice] = useState("");
   // const [backgroundBlur, setBackgroundBlur] = useState(user.videoEffects.backgroundBlur);
-  const [videoFilter, setVideoFilter] = useState({ filterName: "", filterPayload: "" });
-  const { createPreview, destroyPreview, previewPublisher, logLevel, previewMediaCreated, deviceInfo, accessAllowed } = usePreviewPublisher();
+  const [videoFilter, setVideoFilter] = useState({
+    filterName: "",
+    filterPayload: "",
+  });
+  const {
+    createPreview,
+    destroyPreview,
+    previewPublisher,
+    logLevel,
+    previewMediaCreated,
+    deviceInfo,
+    accessAllowed,
+  } = usePreviewPublisher();
 
   const handleVideoSource = React.useCallback(
     (e) => {
@@ -66,8 +81,13 @@ export default function WaitingRoom({ location }) {
 
   const redirectHttps = React.useCallback(() => {
     const url = window.location.href;
-    if (url.toString().indexOf("http://") === 0 && url.toString().indexOf("http://localhost") !== 0) {
-      window.location.href = window.location.href.toString().replace("http://", "https://");
+    if (
+      url.toString().indexOf("http://") === 0 &&
+      url.toString().indexOf("http://localhost") !== 0
+    ) {
+      window.location.href = window.location.href
+        .toString()
+        .replace("http://", "https://");
     } else {
       return;
     }
@@ -90,7 +110,6 @@ export default function WaitingRoom({ location }) {
     }
     return true;
   };
-
 
   const onChangeRoomName = (e) => {
     const roomName = e.target.value;
@@ -137,11 +156,17 @@ export default function WaitingRoom({ location }) {
             setVideoFilter({ filterName: "", filterPayload: "" });
             break;
           case "blur":
-            await previewPublisher.setVideoFilter({ type: "backgroundBlur", blurStrength: filterPayload });
+            await previewPublisher.setVideoFilter({
+              type: "backgroundBlur",
+              blurStrength: filterPayload,
+            });
             setVideoFilter({ filterName: filter, filterPayload });
             break;
           case "backgroundImage":
-            await previewPublisher.setVideoFilter({ type: "backgroundReplacement", backgroundImgUrl: filterPayload });
+            await previewPublisher.setVideoFilter({
+              type: "backgroundReplacement",
+              backgroundImgUrl: filterPayload,
+            });
             setVideoFilter({ filterName: filter, filterPayload });
             break;
           default:
@@ -152,38 +177,6 @@ export default function WaitingRoom({ location }) {
     [previewPublisher]
   );
 
-  // const handleChangeBackgroundBlur = React.useCallback(async () => {
-  //   try {
-  //     if (backgroundBlur) {
-  //       setBackgroundBlur(false);
-  //       destroyPreview();
-  //       stopEffect();
-  //       createPreview(waitingRoomVideoContainer.current, {
-  //         videoSource: localVideoSource,
-  //       });
-  //     } else {
-  //       setBackgroundBlur(true);
-  //       destroyPreview();
-  //       const outputVideoStream = await startBackgroundBlur(videoDevice);
-  //       console.log(outputVideoStream);
-  //       createPreview(waitingRoomVideoContainer.current, {
-  //         videoSource: outputVideoStream.getVideoTracks()[0],
-  //         mirror: true,
-  //       });
-  //     }
-  //   } catch (e) {
-  //     console.log(`Could not send background blurring - ${e}`);
-  //   }
-  // }, [
-  //   backgroundBlur,
-  //   destroyPreview,
-  //   stopEffect,
-  //   createPreview,
-  //   localVideoSource,
-  //   videoDevice,
-  //   startBackgroundBlur,
-  // ]);
-
   useEffect(() => {
     redirectHttps();
     if (localStorage.getItem("username")) {
@@ -192,7 +185,7 @@ export default function WaitingRoom({ location }) {
   }, [redirectHttps]);
 
   useEffect(() => {
-    console.log("user hai kya",user,"local video",localVideo)
+    console.log("user hai kya", user, "local video", localVideo);
     if (
       localAudio !== user.defaultSettings.publishAudio ||
       localVideo !== user.defaultSettings.publishVideo ||
@@ -217,7 +210,16 @@ export default function WaitingRoom({ location }) {
         },
       });
     }
-  }, [localAudio, localVideo, user, setUser, localAudioSource, localVideoSource, videoFilter, localAudioOutput]);
+  }, [
+    localAudio,
+    localVideo,
+    user,
+    setUser,
+    localAudioSource,
+    localVideoSource,
+    videoFilter,
+    localAudioOutput,
+  ]);
 
   useEffect(() => {
     if (userName !== user.userName) {
@@ -233,11 +235,20 @@ export default function WaitingRoom({ location }) {
       const currentVideoDevice = previewPublisher.getVideoDevice();
       setVideoDevice(currentVideoDevice.deviceId);
 
-      VideoExpress.getActiveAudioOutputDevice().then((currentAudioOutputDevice) => {
-        setAudioOutputDevice(currentAudioOutputDevice.deviceId);
-      });
+      VideoExpress.getActiveAudioOutputDevice().then(
+        (currentAudioOutputDevice) => {
+          setAudioOutputDevice(currentAudioOutputDevice.deviceId);
+        }
+      );
     }
-  }, [deviceInfo, previewPublisher, setAudioDevice, setVideoDevice, previewMediaCreated, setAudioOutputDevice]);
+  }, [
+    deviceInfo,
+    previewPublisher,
+    setAudioDevice,
+    setVideoDevice,
+    previewMediaCreated,
+    setAudioOutputDevice,
+  ]);
 
   useEffect(() => {
     if (previewPublisher) {
@@ -272,92 +283,168 @@ export default function WaitingRoom({ location }) {
   }, [createPreview, destroyPreview]);
 
   return (
-  <>
-  <div className="absolute left-1/2 top-1/2 flex flex-col transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 p-6 rounded-lg w-96">
-
-  <div className="flex flex-col justify-center items-center">
-    <form className="w-full">
-      <input
-        className="border border-gray-400 rounded-md p-2 w-full"
-        type="text"
-        placeholder="Room Name"
-        value={roomName}
-        onChange={onChangeRoomName}
-        onKeyDown={onKeyDown}
-      
-      />
-      { isRoomNameInvalid && <p className="text-red-500 text-xs italic">Please enter a room name.</p> }
-
-      <input
-        className="border border-gray-400 rounded-md mt-4  p-2 w-full"
-        type="text"
-        placeholder="Name"
-        value={userName}
-        onChange={onChangeParticipantName}
-        onKeyDown={onKeyDown}
-      />
-      {isUserNameInvalid && <p className="text-red-500 text-xs italic">Please enter a name.</p>}
-      <div className="mb-4 flex flex-col">
-  {deviceInfo && previewMediaCreated && (
     <>
-      <div className="mb-2">
-        <label htmlFor="audioDevice" className="block text-sm font-medium text-gray-700 mb-1">Select Audio Input Device</label>
-        <select id="audioDevice" value={audioDevice} onChange={handleAudioSource} className="border border-gray-300 rounded-md p-2 w-full">
-          {deviceInfo.audioInputDevices.map((device) => (
-            <option key={device.deviceId} value={device.deviceId}>{device.label}</option>
-          ))}
-        </select>
+      <div className="px-6 py-24 bg-white isolate sm:py-32 lg:px-8">
+        <div
+          class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+          aria-hidden="true"
+        >
+          <div class="custom-clip-path relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"></div>
+        </div>
+        {/* Heading Text */}
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <HighitlightText text="Welcome to Video Express" />
+          </h2>
+          <p class="mt-2 text-lg leading-8 text-gray-600">
+            Join The Video Call Fill Rereqiured Details
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <form className="max-w-xl mx-auto mt-16 sm:mt-20">
+            <input
+              className="w-full p-2 border border-gray-400 rounded-md"
+              type="text"
+              placeholder="Room Name"
+              value={roomName}
+              onChange={onChangeRoomName}
+              onKeyDown={onKeyDown}
+            />
+            {isRoomNameInvalid && (
+              <p className="text-xs italic text-red-500">
+                Please enter a room name.
+              </p>
+            )}
+
+            <input
+              className="w-full p-2 mt-4 border border-gray-400 rounded-md"
+              type="text"
+              placeholder="Name"
+              value={userName}
+              onChange={onChangeParticipantName}
+              onKeyDown={onKeyDown}
+            />
+            {isUserNameInvalid && (
+              <p className="text-xs italic text-red-500">
+                Please enter a name.
+              </p>
+            )}
+            <div className="flex flex-col mb-4">
+              {deviceInfo && previewMediaCreated && (
+                <>
+                  <div className="mb-2">
+                    <label
+                      htmlFor="audioDevice"
+                      className="block mb-1 text-sm font-medium text-gray-700"
+                    >
+                      Select Audio Input Device
+                    </label>
+                    <select
+                      id="audioDevice"
+                      value={audioDevice}
+                      onChange={handleAudioSource}
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    >
+                      {deviceInfo.audioInputDevices.map((device) => (
+                        <option key={device.deviceId} value={device.deviceId}>
+                          {device.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {deviceInfo.audioOutputDevices && (
+                    <div className="mb-2">
+                      <label
+                        htmlFor="audioOutputDevice"
+                        className="block mb-1 text-sm font-medium text-gray-700"
+                      >
+                        Select Audio Output Device
+                      </label>
+                      <select
+                        id="audioOutputDevice"
+                        value={audioOutputDevice}
+                        onChange={handleAudioOutput}
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      >
+                        {deviceInfo.audioOutputDevices.map((device) => (
+                          <option key={device.deviceId} value={device.deviceId}>
+                            {device.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {deviceInfo && previewMediaCreated && (
+                <div>
+                  <label
+                    htmlFor="videoDevice"
+                    className="block mb-1 text-sm font-medium text-gray-700"
+                  >
+                    Select Video Input Device
+                  </label>
+                  <select
+                    id="videoDevice"
+                    value={videoDevice}
+                    onChange={handleVideoSource}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  >
+                    {deviceInfo.videoInputDevices && (
+                      <>
+                        {deviceInfo.videoInputDevices.map((device) => (
+                          <option key={device.deviceId} value={device.deviceId}>
+                            {device.label}
+                          </option>
+                        ))}
+                      </>
+                    )}
+                  </select>
+                </div>
+              )}
+            </div>
+          </form>
+          <div
+            id="waiting-room-video-container"
+            className="flex items-center justify-center my-4 min-h-40"
+            ref={waitingRoomVideoContainer}
+          ></div>
+          <div className="flex flex-col mb-4">
+            <AudioSettings
+              className="flex justify-between"
+              hasAudio={localAudio}
+              onAudioChange={handleAudioChange}
+            />
+            <LinearProgress
+              variant="determinate"
+              value={logLevel}
+              className="w-full"
+            />
+            <VideoSettings
+              className="flex justify-between"
+              hasVideo={localVideo}
+              onVideoChange={handleVideoChange}
+            />
+          </div>
+          <VideoFilter handleChangeVideoFilter={handleChangeVideoFilter} />
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          <button
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            onClick={handleJoinClick}
+            disabled={!roomName || !userName}
+          >
+            Join Call
+          </button>
+        </div>
       </div>
 
-      {deviceInfo.audioOutputDevices && (
-        <div className="mb-2">
-          <label htmlFor="audioOutputDevice" className="block text-sm font-medium text-gray-700 mb-1">Select Audio Output Device</label>
-          <select id="audioOutputDevice" value={audioOutputDevice} onChange={handleAudioOutput} className="border border-gray-300 rounded-md p-2 w-full">
-            {deviceInfo.audioOutputDevices.map((device) => (
-              <option key={device.deviceId} value={device.deviceId}>{device.label}</option>
-            ))}
-          </select>
-        </div>
+      {accessAllowed !== DEVICE_ACCESS_STATUS.ACCEPTED && (
+        <DeviceAccessAlert accessStatus={accessAllowed}></DeviceAccessAlert>
       )}
     </>
-  )}
-
-  {deviceInfo && previewMediaCreated && (
-    <div>
-      <label htmlFor="videoDevice" className="block text-sm font-medium text-gray-700 mb-1">Select Video Input Device</label>
-      <select id="videoDevice" value={videoDevice} onChange={handleVideoSource} className="border border-gray-300 rounded-md p-2 w-full">
-        {deviceInfo.videoInputDevices && (
-          <>
-            {deviceInfo.videoInputDevices.map((device) => (
-              <option key={device.deviceId} value={device.deviceId}>{device.label}</option>
-            ))}
-          </>
-        )}
-      </select>
-    </div>
-  )}
-</div>
-
-    </form>
-    <div id="waiting-room-video-container" className="flex justify-center items-center my-4 min-h-40" ref={waitingRoomVideoContainer}></div>
-    <div className="flex flex-col mb-4">
-      <AudioSettings className="flex justify-between" hasAudio={localAudio} onAudioChange={handleAudioChange} />
-      <LinearProgress variant="determinate" value={logLevel}  className="w-full" />
-      <VideoSettings className="flex justify-between" hasVideo={localVideo} onVideoChange={handleVideoChange} />
-    </div>
-    <VideoFilter  handleChangeVideoFilter={handleChangeVideoFilter} />
-    </div>
-  <div className="grid grid-cols-1 gap-4">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleJoinClick} disabled={!roomName || !userName}>
-      Join Call
-    </button>
-  </div>
-
-</div>
-
-{accessAllowed !== DEVICE_ACCESS_STATUS.ACCEPTED && <DeviceAccessAlert accessStatus={accessAllowed}></DeviceAccessAlert>}
-
-</>
-
   );
 }
