@@ -443,11 +443,15 @@ export default function WaitingRoom({ location }) {
               </div>
             </div>
           </form>
-          <div
-            id="waiting-room-video-container"
-            className="flex items-center justify-center my-4 min-h-40"
-            ref={waitingRoomVideoContainer}
-          ></div>
+          {/* Video Preview Container */}
+          <hr class="border-gray-800 dark:border-white" />
+          <div className="p-4 border-black bottom-4 flex-center ">
+            <div
+              id="waiting-room-video-container"
+              className="flex items-center justify-center my-4 mt-10 min-h-40"
+              ref={waitingRoomVideoContainer}
+            ></div>
+          </div>
           {/* Video Settings */}
           <div className="flex-col mb-4 space-x-3 flex-center">
             <AudioSettings
