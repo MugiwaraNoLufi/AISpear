@@ -42,7 +42,7 @@ export default function VideoFilterButton({ room }) {
 
   return (
     <>
-      <button onClick={handleOpen} className="p-2 text-gray-500 hover:text-gray-700">
+      <button onClick={handleOpen} className="p-2 text-black hover:text-gray-700 bg-gray-200 rounded-full hover:bg-white transition duration-200">
         <MdCameraEnhance size={24} />
       </button>
       {open && (

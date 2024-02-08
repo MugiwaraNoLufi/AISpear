@@ -69,7 +69,7 @@ export default function MuteAudioButton({
       <button
         ref={anchorRef}
         onClick={handleToggle}
-        className="p-2 rounded-full bg-gray-200 focus:outline-none focus:ring focus:border-blue-300"
+        className=" rounded-full bg-gray-200 focus:outline-none focus:ring focus:border-blue-300"
       >
         <IoMdArrowDropdown className="text-lg" />
       </button>

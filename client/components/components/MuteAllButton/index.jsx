@@ -6,7 +6,7 @@ export default function MuteAllButton({ handleMuteAll, areAllMuted }) {
   return (
     <button
       onClick={handleMuteAll}
-      className="p-2 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      className="p-3 text-black hover:text-gray-700 bg-gray-200 rounded-full hover:bg-white transition duration-200"
       title={title}
       aria-label={title}
     >

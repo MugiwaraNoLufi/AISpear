@@ -16,7 +16,7 @@ export default function MoreOptionsButton({ participants, room, localParticipant
     <div>
       <button
         onClick={toggleDrawer}
-        className="p-2 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded"
+        className="p-2 text-black hover:text-gray-700 bg-gray-200 rounded-full hover:bg-white transition duration-200"
         aria-label="Chat"
       >
         <FaRegComment className="h-6 w-6" />

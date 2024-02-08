@@ -48,7 +48,7 @@ export default function RecordingButton({ room }) {
       <button
         type="button"
         onClick={handleRecordingAction}
-        className={`p-2 rounded-full focus:outline-none focus:ring focus:border-blue-300 ${
+        className={`p-2 hover:text-gray-700 rounded-full hover:bg-white transition duration-200 ${
           isRecording ? 'bg-red-500 text-white' : 'bg-gray-200'
         }`}
       >

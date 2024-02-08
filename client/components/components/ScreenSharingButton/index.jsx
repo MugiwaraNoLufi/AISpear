@@ -17,8 +17,8 @@ export default function ScreenSharingButton({
       <button
         type="button"
         onClick={handleScreenSharing}
-        className={`p-2 rounded-full focus:outline-none focus:ring focus:border-blue-300 ${
-          isScreenSharing ? 'bg-blue-500 text-white' : 'bg-gray-200'
+        className={`p-2 text-black hover:text-gray-700 rounded-full hover:bg-white transition duration-200 ${
+          isScreenSharing ? 'bg-blue-600 text-white' : 'bg-gray-200'
         }`}
       >
         {isScreenSharing ? (

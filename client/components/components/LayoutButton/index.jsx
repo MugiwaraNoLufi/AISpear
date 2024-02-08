@@ -15,7 +15,7 @@ export default function LayoutButton({ room }) {
 
   return (
     <div className="layout-button">
-      <button onClick={() => setShowMenu(!showMenu)} className="icon-button">
+      <button onClick={() => setShowMenu(!showMenu)} className="p-2 text-black hover:text-gray-700 bg-gray-200 rounded-full hover:bg-white transition duration-200">
         <FaTh />
       </button>
       {showMenu && (

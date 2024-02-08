@@ -34,7 +34,7 @@ export default function SpeakerSelector({
     <div className="relative">
       <button
         onClick={() => setShowDropdown(!showDropdown)}
-        className="p-2 text-xl text-gray-600 hover:text-gray-800"
+        className="p-3 text-black hover:text-gray-700 bg-gray-200 rounded-full hover:bg-white transition duration-200"
         aria-label="Change Audio Output"
       >
         <IoIosVolumeHigh />
